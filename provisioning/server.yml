@@ -1,0 +1,9 @@
+---
+-   name: Set Up manager
+    hosts: manager
+    remote_user: root
+    roles:
+        - swap
+        - docker
+        - certbot
+        - jenkins

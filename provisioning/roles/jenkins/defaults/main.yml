@@ -1,0 +1,3 @@
+certbot_email: mail@deworker.pro
+certbot_hosts:
+    - jenkins.demo-auction.deworker.pro
