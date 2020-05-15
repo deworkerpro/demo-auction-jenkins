@@ -2,10 +2,14 @@ version: '3.7'
 services:
     nginx:
         image: nginx:alpine
+        restart: always
         ports:
-            - "8000:8000"
+            - "80:80"
+            - "443:443"
         volumes:
-            - ./docker/development/nginx/conf.d:/etc/nginx/conf.d
+            - /etc/letsencrypt:/etc/letsencrypt:ro
+            - /var/www/html:/var/www/html:ro
+            - ./docker/production/nginx/conf.d:/etc/nginx/conf.d:ro
         depends_on:
             - jenkins
 
