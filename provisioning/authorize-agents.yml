@@ -1,0 +1,14 @@
+---
+-   name: Put agent authorized key
+    hosts: agent
+    remote_user: root
+    vars_prompt:
+        -   name: file
+            prompt: "Public key file"
+            private: no
+            default: "agent_rsa.pub"
+    tasks:
+        -   name: Add user authorized key
+            authorized_key:
+                user: jenkins
+                key: "{{ lookup('file', file) }}"
