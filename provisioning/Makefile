@@ -4,6 +4,9 @@ server:
 authorize:
 	ansible-playbook authorize.yml -i hosts.yml
 
+authorize-agents:
+	ansible-playbook authorize-agents.yml -i hosts.yml
+
 upgrade:
 	ansible-playbook upgrade.yml -i hosts.yml
 

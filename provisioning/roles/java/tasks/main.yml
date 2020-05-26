@@ -1,0 +1,14 @@
+---
+-   name: Add OpenJDK repository
+    apt_repository:
+        repo: 'deb http://ftp.us.debian.org/debian sid main'
+        state: present
+        filename: openjdk
+        update_cache: yes
+
+-   name: Install OpenJDK
+    apt:
+        name:
+            - openjdk-8-jre
+        state: present
+        update_cache: yes
