@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+    jenkins:
+        image: jenkinsci/blueocean
+        ports:
+            - "8000:8080"
+        volumes:
+            - jenkins-data:/var/jenkins_home
+
+volumes:
+    jenkins-data:
