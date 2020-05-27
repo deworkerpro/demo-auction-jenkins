@@ -20,6 +20,7 @@ services:
         environment:
             DOCKER_TLS_CERTDIR: /certs
         volumes:
+            - jenkins-data:/var/jenkins_home
             - docker-certs:/certs/client
 
 volumes:
