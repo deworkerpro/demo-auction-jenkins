@@ -16,6 +16,9 @@ services:
         privileged: true
         environment:
             DOCKER_TLS_CERTDIR: /certs
+        volumes:
+            - docker-certs:/certs/client
 
 volumes:
     jenkins-data:
+    docker-certs:
