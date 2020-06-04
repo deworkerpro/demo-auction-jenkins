@@ -6,3 +6,11 @@
         groups:
             - docker
         state: present
+
+-   name: Install software
+    apt:
+        name:
+            - git
+            - make
+        state: present
+        update_cache: yes
