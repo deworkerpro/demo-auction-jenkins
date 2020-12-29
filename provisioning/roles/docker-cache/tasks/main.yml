@@ -1,0 +1,9 @@
+---
+-   name: Docker cache configuration
+    template:
+        src: files/daemon.json.j2
+        dest: "{{ config_path }}"
+        owner: root
+        group: root
+        mode: 0644
+    notify: Reload Docker
