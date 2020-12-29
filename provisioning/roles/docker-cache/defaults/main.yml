@@ -1,0 +1,2 @@
+config_path: /etc/docker/daemon.json
+cache_registry: https://cache-registry.demo-auction.deworker.pro

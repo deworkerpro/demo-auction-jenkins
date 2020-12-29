@@ -5,6 +5,9 @@
     roles:
         - swap
         - docker
+        -   role: docker-cache
+            vars:
+                config_path: /etc/docker/dind-daemon.json
         - certbot
         - jenkins
 
@@ -14,5 +17,6 @@
     roles:
         - swap
         - docker
+        - docker-cache
         - java
         - agent
