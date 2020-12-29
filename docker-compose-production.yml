@@ -32,6 +32,7 @@ services:
         environment:
             DOCKER_TLS_CERTDIR: /certs
         volumes:
+            - /etc/docker/dind-daemon.json:/etc/docker/daemon.json:ro
             - jenkins-data:/var/jenkins_home
             - docker-certs:/certs/client
             - docker-data:/var/lib/docker
