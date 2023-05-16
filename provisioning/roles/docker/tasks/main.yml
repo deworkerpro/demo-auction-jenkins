@@ -28,7 +28,9 @@
 
 -   name: Install Docker
     apt:
-        name: docker-ce
+        name:
+            - docker-ce
+            - docker-compose-plugin
         state: present
         update_cache: yes
     notify: Start docker on boot
