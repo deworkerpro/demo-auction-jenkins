@@ -31,6 +31,7 @@
         name:
             - docker-ce
             - docker-compose-plugin
+            - docker-buildx-plugin
         state: present
         update_cache: yes
     notify: Start docker on boot
