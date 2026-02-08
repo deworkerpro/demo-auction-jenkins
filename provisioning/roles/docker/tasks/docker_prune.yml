@@ -1,0 +1,30 @@
+---
+-   name: Prune script
+    ansible.builtin.copy:
+        src: files/docker_prune.sh
+        dest: /usr/local/bin/docker_prune.sh
+        owner: root
+        group: root
+        mode: '0700'
+
+-   name: Prune service file
+    ansible.builtin.copy:
+        src: files/docker_prune.service
+        dest: /etc/systemd/system/docker_prune.service
+        owner: root
+        group: root
+        mode: '0600'
+
+-   name: Prune timer file
+    ansible.builtin.copy:
+        src: files/docker_prune.timer
+        dest: /etc/systemd/system/docker_prune.timer
+        owner: root
+        group: root
+        mode: '0600'
+
+-   name: Prune service
+    ansible.builtin.systemd_service:
+        name: docker_prune.timer
+        state: started
+        enabled: true

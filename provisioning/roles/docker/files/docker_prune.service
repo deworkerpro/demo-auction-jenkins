@@ -1,0 +1,8 @@
+[Unit]
+Description=Docker Prune
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+ExecStart=/usr/local/bin/docker_prune.sh

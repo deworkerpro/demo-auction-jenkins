@@ -1,0 +1,40 @@
+---
+-   name: Install dependencies
+    apt:
+        name:
+            - apt-transport-https
+            - ca-certificates
+            - curl
+            - software-properties-common
+        state: present
+        update_cache: yes
+
+-   name: Add GPG key
+    get_url:
+        url: https://download.docker.com/linux/debian/gpg
+        dest: /etc/apt/keyrings/docker.asc
+
+-   name: Set up the repository
+    apt_repository:
+        repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+        state: present
+        filename: docker
+        update_cache: yes
+
+-   name: Install Docker
+    apt:
+        name:
+            - docker-ce
+            - docker-compose-plugin
+            - docker-buildx-plugin
+        state: present
+        update_cache: yes
+    notify: Start docker on boot
+
+-   name: Remove useless packages
+    apt:
+        autoclean: yes
+
+-   name: Remove useless dependencies
+    apt:
+        autoremove: yes
