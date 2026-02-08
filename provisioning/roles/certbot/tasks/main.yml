@@ -19,7 +19,7 @@
         dest: /etc/letsencrypt/cli.ini
         owner: root
         group: root
-        mode: 0644
+        mode: '0644'
 
 -   name: Remove useless packages
     apt:
