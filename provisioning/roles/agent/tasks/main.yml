@@ -13,5 +13,6 @@
             - git
             - make
             - gettext-base
+            - jq
         state: present
         update_cache: yes
